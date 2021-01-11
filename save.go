@@ -2,6 +2,7 @@ package lifecycle
 
 import (
 	"fmt"
+	"strconv"
 
 	"github.com/buildpacks/imgutil"
 	"github.com/buildpacks/imgutil/local"
@@ -43,6 +44,12 @@ func saveImage(image imgutil.Image, additionalNames []string, logger Logger) (Im
 	case remote.DigestIdentifier:
 		imageReport.Digest = v.Digest.DigestStr()
 		logger.Debugf("\n*** Digest: %s\n", v.Digest.DigestStr())
+		manifestSize, sizeErr := image.Size()
+		if sizeErr != nil {
+			return ImageReport{}, sizeErr
+		}
+		imageReport.ManifestSize = strconv.FormatInt(manifestSize, 10)
+		logger.Debugf("\n*** Manifest Size: %d\n", manifestSize)
 	default:
 	}
 
