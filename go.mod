@@ -19,4 +19,9 @@ require (
 	gotest.tools/v3 v3.0.2 // indirect
 )
 
+replace (
+	github.com/buildpacks/imgutil => /Users/dan/workspace/VMware/buildpacks/imgutil
+	github.com/google/go-containerregistry => /Users/dan/workspace/google/go-containerregistry
+)
+
 go 1.15

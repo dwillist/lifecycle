@@ -73,6 +73,8 @@ $(BUILD_DIR)/linux/lifecycle/lifecycle:
 	  --workdir=/lifecycle \
 	  --volume $(OUT_DIR):/out \
 	  --volume $(PWD):/lifecycle \
+	  --volume /Users/dan/workspace/VMware/buildpacks/imgutil/:/Users/dan/workspace/VMware/buildpacks/imgutil/ \
+	  --volume /Users/dan/workspace/google/go-containerregistry:/Users/dan/workspace/google/go-containerregistry/ \
 	  --volume gocache:/go \
 	  $(SOURCE_COMPILATION_IMAGE) \
 	  sh -c '$(GOENV) $(GOBUILD) -o /out/lifecycle -a ./cmd/lifecycle'
