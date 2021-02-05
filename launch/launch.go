@@ -11,7 +11,7 @@ type Process struct {
 	Command     string   `toml:"command" json:"command"`
 	Args        []string `toml:"args" json:"args"`
 	Direct      bool     `toml:"direct" json:"direct"`
-	Default     bool     `toml:"default, omitzero" json:"default"`
+	Default     bool     `toml:"default,omitempty" json:"default,omitempty"`
 	BuildpackID string   `toml:"buildpack-id" json:"buildpackID"`
 }
 

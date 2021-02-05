@@ -400,7 +400,6 @@ version = "4.5.6"
 					expectedJSON := `
 {
   "bom": null,
-  "buildpack-default-process-type": "",
   "buildpacks": [
     {
       "id": "buildpack.id",
@@ -458,7 +457,6 @@ version = "4.5.6"
       }
     }
   ],
-  "buildpack-default-process-type": "",
   "buildpacks": [
     {
       "id": "buildpack.id",
@@ -486,8 +484,7 @@ version = "4.5.6"
       "direct": true,
       "command": "/some/command",
       "args": ["some", "command", "args"],
-      "buildpackID": "buildpack.id",
-      "default": false
+      "buildpackID": "buildpack.id"
     }
   ]
 }

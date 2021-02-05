@@ -106,7 +106,7 @@ func (b *Builder) Build() (*BuildMetadata, error) {
 		}
 
 		if replacedDefault != "" {
-			warning := fmt.Sprintf("Warning: redefining the following default process type with a process not marked as default: %s", replacedDefault)
+			warning := fmt.Sprintf("Warning: redefining the following default process type with a process not marked as default: %s\n", replacedDefault)
 			if _, err := b.Out.Write([]byte(warning)); err != nil {
 				return nil, err
 			}
