@@ -311,7 +311,10 @@ func (ea exportArgs) initRemoteAppImage(analyzedMD platform.AnalyzedMetadata) (i
 		}
 		analyzedRegistry := ref.Context().RegistryStr()
 		if analyzedRegistry != ea.registry {
-			return nil, "", fmt.Errorf("analyzed image is on a different registry %s from the exported image %s", analyzedRegistry, ea.registry)
+			cmd.DefaultLogger.Infof(
+				"analyzed image is on a different registry %s from the exported image %s, this may impact performance",
+				analyzedRegistry, ea.registry,
+				)
 		}
 		opts = append(opts, remote.WithPreviousImage(analyzedMD.Image.Reference))
 	}
